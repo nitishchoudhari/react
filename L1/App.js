@@ -4,10 +4,8 @@ import ReactDOM from "react-dom/client";
 /* React code*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const heading = <h1>Hello this is react Element</h1>;
 
-const elem = <h1>Hey I am react element</h1>
+const Title = () => (<> <h1>This is React Component </h1> {heading} </>)
 
-const Title = () => <h2>{elem} Functional component 2 title</h2>
-const Heading = () => <h1> {Title()} Hello Functional Component</h1>;
-
-root.render(<Heading />);
+root.render(<Title />)

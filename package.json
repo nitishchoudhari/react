@@ -4,8 +4,8 @@
   "description": "This is react web app",
   "scripts": {
     "test": "jest",
-    "start": "parcel ./L1/index.html",
-    "build" : "parcel build index.html"
+    "start": "parcel ./kitchNCube/index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserslist" : ["last 2 versions"]
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
