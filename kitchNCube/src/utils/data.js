@@ -1,39 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/* React code*/
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const Header = () => (
-    <div className="header">
-        <div className="logo-container">
-            <img className="logo" src="https://t3.ftcdn.net/jpg/02/41/30/72/360_F_241307210_MjjaJC3SJy2zJZ6B7bKGMRsKQbdwRSze.jpg" />
-        </div>
-        <div className="nav-items">
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Cart</li>
-            </ul>
-        </div>
-    </div>
-)
-
-
-const RestaurantContainer = ({resData}) => {
-    const {name, cuisines, avgRating, deliveryTime} = resData?.info;
-    return (
-        <div className="restro-card" style={{ backgroundColor: "#f0f0f0" }}>
-            <img alt="restro-logo" className="restro-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ resData.info.cloudinaryImageId} />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(', ')}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>{deliveryTime} mins</h4>
-        </div>)
-}
-
-const resList = [
+let resList = [
     {
         "info": {
             "id": "54424",
@@ -1579,29 +1544,4 @@ const resList = [
     }
 ];
 
-
-const Body = () => (
-    <div className="body">
-        <div className="search-bar">Search</div>
-        <div className="restaurant-cont">
-            { resList.map( restro => <RestaurantContainer key={restro.info.id} resData={restro}/>) }
-            
-            {/* <RestaurantContainer resData={resList[0]} />
-            <RestaurantContainer resData={resList[1]} />
-            <RestaurantContainer resData={resList[2]} />
-            <RestaurantContainer resData={resList[3]} />
-            <RestaurantContainer resData={resList[4]} />
-            <RestaurantContainer resData={resList[5]} /> */}
-            {/* <RestaurantContainer resName="China Bistro" resDesc="Chinese Cuisine Restaurant" starRate="4.2" orderTime="40" /> */}
-        </div>
-    </div>
-)
-
-const AppLayout = () => (
-    <div className="app">
-        <Header />
-        <Body />
-    </div>
-)
-
-root.render(<AppLayout />);
+export default resList;
