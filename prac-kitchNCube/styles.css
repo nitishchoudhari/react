@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 0 10px;
+  }
+  
+  .logo {
+    width: 140px;
+  }
+  
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .nav-items > ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-items > ul > li {
+    display: flex;
+    padding: 10px;
+    font-size: 22px;
+  }
+  
+  .restaurant-cont {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    margin: 8px;
+    justify-content: center;
+  }
+  
+  .restro-card {
+    width: 200px;
+    padding: 20px 10px 10px;
+    margin-top: 10px;
+    padding: 5px;
+    margin: 10px;
+  }
+  
+  .restro-card:hover {
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  
+  .search-bar {
+    padding: 10px;
+  }
+  
+  .restro-logo {
+    width: 100%;
+  }
+  
+  .shimmer-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 20px;
+    gap: 20px;
+  }
+  
+  .shimmer-card {
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+  }

@@ -1,11 +1,29 @@
 import RestaurantContainer from "./RestaurantContainer";
-import resList from "../utils/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Shimmer } from "./shimmer";
 
 const Body = () => {
     // state variable
-    let [listOfRest, setlistOfRest] = useState(resList)
+    // let [listOfRest, setlistOfRest] = useState([resList])
+    let [listOfRest, setlistOfRest] = useState([])
  
+    useEffect(()=>{
+        fetchData()
+    }, []);
+
+    const fetchData = async () => {
+    const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
+    const response =  await data.json();
+    console.log(response.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+    // good way of handling data =>  optional chaining
+    setlistOfRest(response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+
+    if(listOfRest.length === 0){
+        // return <h1>Loading...</h1> //Bad UX Instead use Shimmer UI to showcase data loading.
+       return <Shimmer />
+    }
+
     // Normal JS Function
 
     // let listOfRestJS = [
@@ -59,7 +77,6 @@ const Body = () => {
                 <div className="restaurant-cont">
                     {/* {console.log(listOfRestJS)} */}
                     { listOfRest.map( restro => <RestaurantContainer key={restro.info.id} resData={restro}/>) }
-                    
                     {/* <RestaurantContainer resData={resList[0]} />
                     <RestaurantContainer resData={resList[1]} />*/}
                     {/* <RestaurantContainer resName="China Bistro" resDesc="Chinese Cuisine Restaurant" starRate="4.2" orderTime="40" /> */}
