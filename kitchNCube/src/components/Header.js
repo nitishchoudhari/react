@@ -3,6 +3,9 @@ import { LOGO_URL } from "../utils/constants";
 
 export const Header = () => {
     const [btnName, setBtnName] = useState('Login');
+    // const arr =  useState('Login');
+    // const btnName = arr[0];
+    // const setBtnName = arr[1]
     return (
     <div className="header">
         <div className="logo-container">
