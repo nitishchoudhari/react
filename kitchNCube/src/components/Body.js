@@ -4,7 +4,7 @@ import { Shimmer } from "./shimmer";
 
 const Body = () => {
     // state variable
-    // let [listOfRest, setlistOfRest] = useState([resList])
+    // let [listOfRest, setlistOfRest] = useState(resList)
     let [listOfRest, setlistOfRest] = useState([])
  
     useEffect(()=>{
@@ -19,10 +19,11 @@ const Body = () => {
     setlistOfRest(response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
-    if(listOfRest.length === 0){
-        // return <h1>Loading...</h1> //Bad UX Instead use Shimmer UI to showcase data loading.
-       return <Shimmer />
-    }
+    // conditional Rendering
+    // if(listOfRest.length === 0){
+    //     // return <h1>Loading...</h1> //Bad UX Instead use Shimmer UI to showcase data loading.
+    //    return <Shimmer />
+    // }
 
     // Normal JS Function
 
@@ -64,7 +65,7 @@ const Body = () => {
     //     }
     // ];
     // const [listOfRest] = useState(listOfRestJS);
-    return (
+    return (listOfRest.length === 0) ? ( <Shimmer /> ) : (
         <div className="body">
                 <div className="filter">
                     <button style={{margin : "10px 0"}} className="filter btn" 
